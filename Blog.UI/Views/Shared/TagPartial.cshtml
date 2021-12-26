@@ -1,0 +1,12 @@
+﻿@model  List<Blog.Entity.Tag>
+<aside class="tags">
+    <h4>Tags</h4>
+
+    @foreach (Blog.Entity.Tag item in Model)
+    {
+        <a href="#" class="#" title="17 topic">
+                  <i class="fa fa-tag"></i> @item.TagName
+        </a>
+    }
+
+</aside>

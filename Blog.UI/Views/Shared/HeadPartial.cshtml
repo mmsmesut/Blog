@@ -1,4 +1,11 @@
-﻿<header>
+﻿@using Blog.Entity
+@model List<Category>
+@* 
+Controllerdan view'e veri taşırken View tarafında yapılacak 2 işlem vardır 
+ a) küçük model iler verinin tipini belritiriz 
+ b) büyük Model de verinin kendisini tutuyor 
+*@
+<header>
     <!-- Container-->
     <div class="container">
         <!-- Row-->
@@ -17,25 +24,25 @@
                 <!-- Menu-->
                 <ul id="menu" class="sf-menu">
                     <li>
-                        <a href="index.html">HOME <i class="fa fa-angle-down"></i></a>
-                        <ul>
+                        <a href="/">ANA SAYFA </a>
+                        @*<ul>
                             <li><a href="index.html">Home Corporate</a></li>
                             <li><a href="index-agency.html">Home Agency</a></li>
                             <li><a href="index-business.html">Home Business</a></li>
                             <li><a href="index-creative.html">Home Creative</a></li>
                             <li><a href="index-alternative.html">Home Alternative</a></li>
                             <li><a href="index-one-page.html">Home One Page</a></li>
-                        </ul>
+                        </ul>*@
                     </li>
                     <li>
-                        <a href="about-us.html">ABOUT<i class="fa fa-angle-down"></i></a>
-                        <ul>
+                        <a href="about-us.html">HAKKIMIZDA</a>
+                        @*<ul>
                             <li><a href="about-us.html">About Us</a></li>
                             <li><a href="about-me.html">About Me</a></li>
-                        </ul>
+                        </ul>*@
                     </li>
                     <li>
-                        <a href="services.html">SERVICES <i class="fa fa-angle-down"></i></a>
+                        <a href="services.html">HİZMETLERİMİZ <i class="fa fa-angle-down"></i></a>
                         <ul>
                             <li><a href="services.html">Services Default</a></li>
                             <li><a href="services-optional.html">Services Optional</a></li>
@@ -43,46 +50,56 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="feature-princing-tables.html">FEATURES <i class="fa fa-angle-down"></i></a>
+                        <a href="feature-princing-tables.html">KATEGORİ <i class="fa fa-angle-down"></i></a>
                         <ul>
-                            <li><a href="page-sections-backgrounds.html">Sections Backgrounds</a></li>
-                            <li>
-                                <a href="#">Pages <i class="fa fa-angle-right"></i></a>
-                                <ul>
-                                    <li><a href="page-register.html">Register User</a></li>
-                                    <li><a href="page-full-width.html">Full Width</a></li>
-                                    <li><a href="page-left-sidebar.html">Left Sidebar</a></li>
-                                    <li><a href="page-right-sidebar.html">Right Sidebar</a></li>
-                                    <li><a href="page-404.html">404 Page</a></li>
-                                    <li><a href="page-faq.html">FAQ</a></li>
-                                    <li><a href="sitemap.html">Sitemap</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Headers <i class="fa fa-angle-right"></i></a>
-                                <ul>
-                                    <li><a href="feature-header-1.html">Header Version 1</a></li>
-                                    <li><a href="feature-header-2.html">Header Version 2</a></li>
-                                    <li><a href="feature-header-3.html">Header Version 3</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Footers <i class="fa fa-angle-right"></i></a>
-                                <ul>
-                                    <li><a href="feature-footer-1.html#footer">Footer Version 1</a></li>
-                                    <li><a href="feature-footer-2.html#footer">Footer Version 2</a></li>
-                                    <li><a href="feature-footer-3.html#footer">Footer Version 3</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="feature-princing-tables.html">Princing Tables</a></li>
-                            <li><a href="feature-grid-system.html">Grind System</a></li>
-                            <li><a href="feature-typograpy.html">Tipograpy</a></li>
-                            <li><a href="feature-icons.html">Icons</a></li>
-                            <li><a href="feature-elements.html">Elements</a></li>
+
+                            @*<li>
+            <a href="#">Yazılım Kategorileri <i class="fa fa-angle-right"></i></a>
+            <ul>
+                <li><a href="page-register.html">Register User</a></li>
+                <li><a href="page-full-width.html">Full Width</a></li>
+                <li><a href="page-left-sidebar.html">Left Sidebar</a></li>
+                <li><a href="page-right-sidebar.html">Right Sidebar</a></li>
+                <li><a href="page-404.html">404 Page</a></li>
+                <li><a href="page-faq.html">FAQ</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+        </li>
+
+
+
+        <li>
+            <a href="#">Headers <i class="fa fa-angle-right"></i></a>
+            <ul>
+                <li><a href="feature-header-1.html">Header Version 1</a></li>
+                <li><a href="feature-header-2.html">Header Version 2</a></li>
+                <li><a href="feature-header-3.html">Header Version 3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Footers <i class="fa fa-angle-right"></i></a>
+            <ul>
+                <li><a href="feature-footer-1.html#footer">Footer Version 1</a></li>
+                <li><a href="feature-footer-2.html#footer">Footer Version 2</a></li>
+                <li><a href="feature-footer-3.html#footer">Footer Version 3</a></li>
+            </ul>
+        </li>
+        <li><a href="feature-princing-tables.html">Princing Tables</a></li>
+        <li><a href="feature-grid-system.html">Grind System</a></li>
+        <li><a href="feature-typograpy.html">Tipograpy</a></li>
+        <li><a href="feature-icons.html">Icons</a></li>*@
+
+                            @foreach (Category item in Model)
+                            {
+                                <li><a href="feature-elements.html">@item.CategoryName</a></li>
+                            }
+
                         </ul>
                     </li>
+
+
                     <li>
-                        <a href="work-4-columns.html">WORK <i class="fa fa-angle-down"></i></a>
+                        <a href="work-4-columns.html">PROJELERİMİZ <i class="fa fa-angle-down"></i></a>
                         <ul>
                             <li><a href="work-4-columns.html">4 Columns</a></li>
                             <li><a href="work-3-columns.html">3 Columns</a></li>
@@ -90,14 +107,14 @@
                             <li><a href="single-work.html">Single Work</a></li>
                         </ul>
                     </li>
-                    <li>
+                    @*<li>
                         <a href="blog.html">BLOG <i class="fa fa-angle-down"></i></a>
                         <ul>
                             <li><a href="blog.html">Post</a></li>
                             <li><a href="blog-post.html">Single Post</a></li>
                         </ul>
                     </li>
-                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>*@
                 </ul>
                 <!-- End Menu-->
             </nav>

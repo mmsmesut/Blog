@@ -8,11 +8,11 @@ namespace Blog.Entity
     {
         public DateTime CreaDate { get; set; } = DateTime.Now;
 
-        public int CreaUser { get; set; } = 999; // Admin User 
+        public int? CreaUser { get; set; } = 999; // Admin User 
 
-        public int Deleted { get; set; } 
+        public bool Deleted { get; set; } 
 
-        public int UpdateDate { get; set; } 
+        public Nullable<DateTime> UpdateDate { get; set; } 
 
     }
 }

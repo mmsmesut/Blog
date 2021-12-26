@@ -1,0 +1,10 @@
+﻿
+@model List<Blog.Entity.Category>
+<h4>KATEGORİLER</h4>
+<ul class="list">
+
+    @foreach (Blog.Entity.Category item in Model)
+    {
+        <li><i class="fa fa-check"></i><a href="#">@item.CategoryName</a></li>
+    }
+</ul>

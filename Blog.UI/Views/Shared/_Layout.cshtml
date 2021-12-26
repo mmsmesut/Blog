@@ -15,11 +15,14 @@
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Theme CSS -->
+    <!-- Theme CSS -->
     <link type="text/css" media="screen" rel="stylesheet" href="~/Content/UI/css/style.css" />
     <!-- Responsive CSS -->
     @*<link type="text/css" media="screen" rel="stylesheet" href="~/Content/UI/css/theme-responsive.css" />*@
-    
+
+
+    <link href="~/Content/UI/css/skins/blue/blue.css" rel="stylesheet" />
+
     @Styles.Render("~/bundles/StyleCss")
 
     @Styles.Render("~/bundles/CssTheme")
@@ -35,6 +38,9 @@
     <link rel="apple-touch-icon" href="~/Content/UI/img/icons/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="~/Content/UI/img/icons/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="~/Content/UI/img/icons/apple-touch-icon-114x114.png">
+
+    <link href="~/Content/UI/css/icons/font-awesome.min.css" rel="stylesheet" />
+
 
     @*<img src="~/Content/UI/img/logo.png" />*@
 
@@ -135,7 +141,12 @@
         @Html.Partial("InfoHeadPartial")
         <!-- Info Head -->
         <!-- Header-->
-        @Html.Partial("HeadPartial")
+        @*@Html.Partial("HeadPartial")*@
+
+        @*View Tarafında Bir Action Çağırma*@ 
+
+        @Html.Action("HeadPartial", "Home") 
+
         <!-- End Header-->
         <!-- Title Section -->
         @Html.Partial("TitleSectionPartial")
@@ -380,18 +391,19 @@
                         <hr>
 
                         <aside>
-                            <h4>Categories</h4>
-                            <ul class="list">
-                                <li><i class="fa fa-check"></i><a href="#">Design</a></li>
-                                <li><i class="fa fa-check"></i><a href="#">Photos</a></li>
-                                <li><i class="fa fa-check"></i><a href="#">Videos</a></li>
-                                <li><i class="fa fa-check"></i><a href="#">Lifestyle</a></li>
-                                <li><i class="fa fa-check"></i><a href="#">Technology</a></li>
-                            </ul>
+                            @*<h4>Categories</h4>
+            <ul class="list">
+                <li><i class="fa fa-check"></i><a href="#">Design</a></li>
+                <li><i class="fa fa-check"></i><a href="#">Photos</a></li>
+                <li><i class="fa fa-check"></i><a href="#">Videos</a></li>
+                <li><i class="fa fa-check"></i><a href="#">Lifestyle</a></li>
+                <li><i class="fa fa-check"></i><a href="#">Technology</a></li>
+            </ul>*@
+                            @Html.Action("RightCategoryPartial", "Home")
                         </aside>
 
 
-                        <aside class="tags">
+                        @*<aside class="tags">
                             <h4>Tags</h4>
                             <a href="#" class="#" title="17 topic"><i class="fa fa-tag"></i> corporate </a>
                             <a href="#" class="#" title="44 topic"><i class="fa fa-tag"></i> theme </a>
@@ -403,126 +415,133 @@
                             <a href="#" class="#" title="14 topic"><i class="fa fa-tag"></i> jquery </a>
                             <a href="#" class="#" title="1 topic"><i class="fa fa-tag"></i> muse template </a>
                             <a href="#" class="#" title="4 topic"><i class="fa fa-tag"></i> minimalist </a>
-                        </aside>
+                        </aside>*@
+
+                        @Html.Action("GetAllTags","Tag")
 
 
-                        <aside>
-                            <div class="tabs">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#popularPosts" data-toggle="tab"><i class="fa fa-star"></i> Popular</a></li>
-                                    <li class=""><a href="#recentPosts" data-toggle="tab">Recent</a></li>
-                                </ul>
-                                <div class="tab-content">
+                        @*<aside>
+            <div class="tabs">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#popularPosts" data-toggle="tab"><i class="fa fa-star"></i> Popular</a></li>
+                    <li class=""><a href="#recentPosts" data-toggle="tab">Recent</a></li>
+                </ul>
+                <div class="tab-content">
 
-                                    <div class="tab-pane active" id="popularPosts">
-                                        <ul class="simple-post-list">
-                                            <li>
-                                                <div class="post-image">
-                                                    <div class="img-thumbnail">
-                                                        <a href="blog-post.html">
-                                                            <img src="~/Content/UI/img/clients-downloads/1.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="post-info">
-                                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
-                                                    <div class="post-meta">
-                                                        Nov 25 / 7 / 2013
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="post-image">
-                                                    <div class="img-thumbnail">
-                                                        <a href="blog-post.html">
-                                                            <img src="~/Content/UI/img/clients-downloads/2.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="post-info">
-                                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
-                                                    <div class="post-meta">
-                                                        Nov 25 / 7 / 2013
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="post-image">
-                                                    <div class="img-thumbnail">
-                                                        <a href="blog-post.html">
-                                                            <img src="~/Content/UI/img/clients-downloads/3.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="post-info">
-                                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
-                                                    <div class="post-meta">
-                                                        Nov 25 / 7 / 2013
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                        </ul>
+                    <div class="tab-pane active" id="popularPosts">
+                        <ul class="simple-post-list">
+                            <li>
+                                <div class="post-image">
+                                    <div class="img-thumbnail">
+                                        <a href="blog-post.html">
+                                            <img src="~/Content/UI/img/clients-downloads/1.jpg" alt="">
+                                        </a>
                                     </div>
-
-                                    <div class="tab-pane" id="recentPosts">
-                                        <ul class="simple-post-list">
-                                            <li>
-                                                <div class="post-image">
-                                                    <div class="img-thumbnail">
-                                                        <a href="blog-post.html">
-                                                            <img src="~/Content/UI/img/clients-downloads/3.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="post-info">
-                                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
-                                                    <div class="post-meta">
-                                                        Nov 25 / 7 / 2013
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="post-image">
-                                                    <div class="img-thumbnail">
-                                                        <a href="blog-post.html">
-                                                            <img src="~/Content/UI/img/clients-downloads/2.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="post-info">
-                                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
-                                                    <div class="post-meta">
-                                                        Nov 25 / 7 / 2013
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li>
-                                                <div class="post-image">
-                                                    <div class="img-thumbnail">
-                                                        <a href="blog-post.html">
-                                                            <img src="~/Content/UI/img/clients-downloads/1.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="post-info">
-                                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
-                                                    <div class="post-meta">
-                                                        Nov 25 / 7 / 2013
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-
                                 </div>
-                            </div>
-                        </aside>
+                                <div class="post-info">
+                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
+                                    <div class="post-meta">
+                                        Nov 25 / 7 / 2013
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="post-image">
+                                    <div class="img-thumbnail">
+                                        <a href="blog-post.html">
+                                            <img src="~/Content/UI/img/clients-downloads/2.jpg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="post-info">
+                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
+                                    <div class="post-meta">
+                                        Nov 25 / 7 / 2013
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="post-image">
+                                    <div class="img-thumbnail">
+                                        <a href="blog-post.html">
+                                            <img src="~/Content/UI/img/clients-downloads/3.jpg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="post-info">
+                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
+                                    <div class="post-meta">
+                                        Nov 25 / 7 / 2013
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="tab-pane" id="recentPosts">
+                        <ul class="simple-post-list">
+                            <li>
+                                <div class="post-image">
+                                    <div class="img-thumbnail">
+                                        <a href="blog-post.html">
+                                            <img src="~/Content/UI/img/clients-downloads/3.jpg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="post-info">
+                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
+                                    <div class="post-meta">
+                                        Nov 25 / 7 / 2013
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="post-image">
+                                    <div class="img-thumbnail">
+                                        <a href="blog-post.html">
+                                            <img src="~/Content/UI/img/clients-downloads/2.jpg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="post-info">
+                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
+                                    <div class="post-meta">
+                                        Nov 25 / 7 / 2013
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="post-image">
+                                    <div class="img-thumbnail">
+                                        <a href="blog-post.html">
+                                            <img src="~/Content/UI/img/clients-downloads/1.jpg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="post-info">
+                                    <a href="blog-post.html">Pellentesque habitant morbi.</a>
+                                    <div class="post-meta">
+                                        Nov 25 / 7 / 2013
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </aside>*@
+
+
+                      @Html.Action("PopularAndRecentPartial", "CategoryDetail")
+
+
 
                         <aside>
                             <h4>Recent flickr</h4>

@@ -1,0 +1,70 @@
+﻿@using Blog.UI.Models
+@model PopularAndRecentPostResponseModel
+<aside>
+    <div class="tabs">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#popularPosts" data-toggle="tab"><i class="fa fa-star"></i> Popüler</a></li>
+            <li class=""><a href="#recentPosts" data-toggle="tab">En Son</a></li>
+        </ul>
+        <div class="tab-content">
+
+           
+            <div class="tab-pane active" id="popularPosts">
+                <ul class="simple-post-list">
+
+                    @foreach (var item in Model.PopularPost)
+                    {
+                        <li>
+                            <div class="post-image">
+                                <div class="img-thumbnail">
+                                    <a href="blog-post.html">
+                                        <img src="~/Content/UI/img/clients-downloads/1.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <a href="blog-post.html">
+                                    
+                                    @Blog.Helper.StringHelper.ShortenedStringWordsAndThreeDot(@item.Header,27)
+                                </a>
+                                <div class="post-meta">
+                                   
+                                    @Blog.Helper.DateTimeHelper.GetDate(item.CreaDate)
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="tab-pane" id="recentPosts">
+                <ul class="simple-post-list">
+
+                    @foreach (var item in Model.RecentPost)
+                    {
+                        <li>
+                            <div class="post-image">
+                                <div class="img-thumbnail">
+                                    <a href="blog-post.html">
+                                        <img src="~/Content/UI/img/clients-downloads/3.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <a href="blog-post.html">@Blog.Helper.StringHelper.ShortenedStringWordsAndThreeDot(@item.Header, 27)</a>
+
+                                <div class="post-meta">
+
+                                    @Blog.Helper.DateTimeHelper.GetDate(item.CreaDate)
+
+                                </div>
+                            </div>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</aside>

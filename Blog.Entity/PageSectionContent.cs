@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Blog.Entity
 {
-    public class CategoryDetail : EntityBase
+    public class PageSectionContent : EntityBase
     {
-        public int CategoryDetailId { get; set; }
+        public int PageSectionContentId { get; set; }
 
-        public int CategoryId { get; set; }
-
-        public int TagId { get; set; }
+        public int PageSectionId { get; set; }
 
         public string Header { get; set; }
 
         public string Content { get; set; }
 
+        public string Footer { get; set; }
+
         public string Description { get; set; }
 
-        public bool IsPopular { get; set; }
     }
 }

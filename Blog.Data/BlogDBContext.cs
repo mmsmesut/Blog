@@ -21,7 +21,13 @@ namespace Blog.Data
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Slider> Sliders { get; set; }
-        public virtual DbSet<UserRole> UserRoles { get; set; }
+        //public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<Tag> Tags { get; set; }
+
+        public virtual DbSet<PageSection> PageSections { get; set; }
+        public virtual DbSet<PageSectionContent> PageSectionContents { get; set; }
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -31,7 +37,11 @@ namespace Blog.Data
             modelBuilder.Entity<Message>().ToTable("Message");
             modelBuilder.Entity<Role>().ToTable("Role");
             modelBuilder.Entity<Slider>().ToTable("Slider");
-            modelBuilder.Entity<UserRole>().ToTable("UserRole");
+            //modelBuilder.Entity<UserRole>().ToTable("UserRole");
+            modelBuilder.Entity<Tag>().ToTable("Tag");
+
+            modelBuilder.Entity<PageSection>().ToTable("PageSection");
+            modelBuilder.Entity<PageSectionContent>().ToTable("PageSectionContent");
         }
 
     }

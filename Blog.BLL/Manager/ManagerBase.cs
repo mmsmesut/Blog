@@ -22,11 +22,23 @@ namespace Blog.BLL.Manager
                 {
                     if (_context == null)
                     {
-                        _context = new BlogDBContext(DataService.ConnectionString);
+                        // _context = new BlogDBContext(DataService.ConnectionString);
+                        _context = context;
                     }
                 }
             }
-          
+     
         }
+            
+
+        //Global bir metod yazdık 
+
+        public void TumManagerlardanCagrilabilenOrtakMetod()
+        {
+      
+        }
+
+
+
     }
 }
