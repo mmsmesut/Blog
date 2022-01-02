@@ -13,7 +13,8 @@ namespace Blog.UI.Controllers
         // GET: Home
         public ActionResult Index()
         {
-             
+
+          
              var simdikiTarih = GetDateTimeBow;
              return View();
         }
@@ -30,7 +31,12 @@ namespace Blog.UI.Controllers
             return PartialView(catList);//MVC de KOntrollerdan view'e veri gönderme Yöntemi View içerisine direk veri gömülür ve View tarafında veri alınır
         }
 
- 
+
+        public PartialViewResult RecentFlickrImages()
+        {
+            var images = DataService.BlogHomePageManager.BlogHomePageImages();
+            return PartialView("RecentFlickrImagesPartial", images);
+        }
 
     }
 }

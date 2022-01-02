@@ -3,65 +3,8 @@
     ViewBag.Title = "Index";
 }
 
-@*<h2>Index</h2>*@
 
-<div class="row padding-top-mini">
- Item service
-<div class="col-md-3">
-    <div class="item-service border-right">
-        <div class="row head-service">
-            <div class="col-md-2">
-                <i class="fa fa-check-square"></i>
-            </div>
-            <div class="col-md-10">
-                <h5>Login or create new account.</h5>
-            </div>
-        </div>
-        <p>Pellentesque habitant morbi fames ac turpis egestas. Vestibulum tortor quam. Pellentesque habitant</p>
-    </div>
-</div>
- End Item service
- Item service
-<div class="col-md-3">
-    <div class="item-service border-right">
-        <div class="row head-service">
-            <div class="col-md-2">
-                <i class="fa fa-star"></i>
-            </div>
-            <div class="col-md-10">
-                <h5>Review your order.</h5>
-            </div>
-        </div>
-        <p>Pellentesque habitant morbi fames ac turpis egestas. Vestibulum tortor quam Pellentesque habitant.</p>
-    </div>
-</div>
- End Item service
- Item service
-<div class="col-md-3">
-    <div class="item-service border-right">
-        <div class="row head-service">
-            <div class="col-md-2">
-                <i class="fa fa-credit-card"></i>
-            </div>
-            <div class="col-md-10">
-                <h5>Payment And FREE shipment.</h5>
-            </div>
-        </div>
-        <p>Pellentesque habitant morbi fames ac turpis egestas. Vestibulum tortor quam. Pellentesque habitant</p>
-    </div>
-</div>
- End Item service
- Login
-<div class="col-md-3">
-    <h4>Client Login</h4>
-    <form>
-        <input type="email" placeholder="Username" required>
-        <input type="password" placeholder="Password" required>
-        <input type="submit" class="btn btn-primary" value="sign in">
-        <span>Or</span>
-        <input type="submit" class="btn btn-primary" value="Register">
-    </form>
-</div>
- ENd Login
-<span class="jTrigger downarrow"><i class="fa fa-minus"></i></span>
-</div>
+
+<!-- Blog Post -->
+@Html.Action("GetAllPost", "CategoryDetail")
+<!-- End Blog Post -->

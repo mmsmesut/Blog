@@ -38,7 +38,6 @@ namespace Blog.BLL
             }
         }
 
-
         //Tüm managerlar DataServise eklenemk zorundadır 
         //Category Manager Inject Edilmesi
         private  CategoryManager _CategoryManager { get; set; }
@@ -102,6 +101,52 @@ namespace Blog.BLL
             } 
        }
 
+        private PageSectionManager _PageSectionManager { get; set; }
+
+        public PageSectionManager PageSectionManager
+        {
+
+            get
+            {
+                if (_PageSectionManager == null)
+                {
+                    lock (lockObject)
+                    {
+                        if (_PageSectionManager == null)
+                        {
+                            _PageSectionManager = new PageSectionManager(_Context);
+                        }
+                    }
+                }
+
+                return _PageSectionManager;
+            }
+        }
+
+
+        private BlogHomePageManager _BlogHomePageManager { get; set; }
+
+        public BlogHomePageManager BlogHomePageManager
+        {
+            get
+            {
+                if (_BlogHomePageManager == null)
+                {
+                    lock (lockObject)
+                    {
+                        if (_BlogHomePageManager == null)
+                        {
+                            _BlogHomePageManager = new BlogHomePageManager(_Context);
+                        }
+                    }
+                }
+
+                return _BlogHomePageManager;
+            }
+        }
+
+
+        
 
     }
 }

@@ -1,0 +1,32 @@
+﻿@using Blog.Entity
+@model List<BlogHomePageImage>
+
+<aside>
+    <h4>Recent flickr</h4>
+    <ul id="flickr-aside" class="thumbs">
+        @foreach (var item in Model)
+        {
+            @*<li>
+                <a href="https://live.staticflickr.com/4425/36324638224_fc5e41f5f6_b.jpg" class="fancybox">
+                    <img src="https://live.staticflickr.com/4425/36324638224_fc5e41f5f6_s.jpg" alt="beach">
+
+                </a>
+            </li>*@
+
+            <li>
+                @* Database De imag eolarak kaydedilmiş bir resmin UI tarafında base64 formatına dönüştürüp gösterdik
+                  1) Resim olarak tutma
+                  2) Resim Yolu olarak tutma 
+                  3) Base64 olarak tutup gösterme
+                    
+                  *@
+                <a href="@Blog.Helper.ImageHelper.GetBase64ImageString(),@Convert.ToBase64String(item.ImageData)" class="fancybox">
+
+                 
+                    <img src="@Blog.Helper.ImageHelper.GetBase64ImageString(),@Convert.ToBase64String(item.ImageData)" alt="Italian Trulli" width="50" height="50">
+                </a>
+            </li>
+
+        }
+    </ul>
+</aside>

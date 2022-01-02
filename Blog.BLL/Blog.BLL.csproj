@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataService.cs" />
+    <Compile Include="Manager\BlogHomePageManager.cs" />
     <Compile Include="Manager\CategoryDetailManager.cs" />
     <Compile Include="Manager\CategoryManager.cs" />
     <Compile Include="Manager\ManagerBase.cs" />
@@ -62,16 +63,20 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Blog.Data\Blog.Data.csproj">
-      <Project>{e20d0e1c-a952-49cc-97d9-b9639a44aa4d}</Project>
+      <Project>{1f4cc18d-84f5-4b87-b6e9-e6f5ce36a673}</Project>
       <Name>Blog.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Blog.Entity\Blog.Entity.csproj">
-      <Project>{cb8572e2-7312-4707-a127-1f216665062e}</Project>
+      <Project>{469c609e-6452-4603-886e-e81ebf93e035}</Project>
       <Name>Blog.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Blog.Helper\Blog.Helper.csproj">
       <Project>{CDA68D76-1138-43E7-A705-88361A25F8D7}</Project>
       <Name>Blog.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Blog.Model\Blog.Model.csproj">
+      <Project>{a03d6930-5255-4cd3-99ec-8b7fcba49be3}</Project>
+      <Name>Blog.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

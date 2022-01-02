@@ -1,4 +1,5 @@
-﻿using Blog.UI.Models;
+﻿using Blog.Model.ResponseModel;
+using Blog.UI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,16 @@ namespace Blog.UI.Controllers
             return PartialView(response);
             //return PartialView("PopularAndRecentPartial", response);
         }
+
+
+
+        public PartialViewResult GetAllPost()
+        {
+
+            List<CategoryDetailResponseModel> response = DataService.CategoryDetailManager.GetAllPost();
+            return PartialView("HomePageBlogPostPartial", response);
+        }
+
     }
 }
 

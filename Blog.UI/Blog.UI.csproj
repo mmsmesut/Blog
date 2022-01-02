@@ -192,6 +192,7 @@
     <Compile Include="Controllers\CategoryDetailController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PageSectionController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Global.asax.cs">
@@ -217,6 +218,10 @@
     <Content Include="Views\Shared\RightCategoryPartial.cshtml" />
     <Content Include="Views\Shared\PopularAndRecentPartial.cshtml" />
     <Content Include="Views\Shared\TagPartial.cshtml" />
+    <Content Include="Views\Shared\RightWidgetText.cshtml" />
+    <Content Include="Views\Shared\LoginClientPartial.cshtml" />
+    <Content Include="Views\Shared\HomePageBlogPostPartial.cshtml" />
+    <Content Include="Views\Shared\RecentFlickrImagesPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -229,6 +234,7 @@
     <Folder Include="Content\Admin\" />
     <Folder Include="Views\CategoryDetail\" />
     <Folder Include="Views\Category\" />
+    <Folder Include="Views\PageSection\" />
     <Folder Include="Views\Slider\" />
     <Folder Include="Views\Tag\" />
   </ItemGroup>
@@ -238,12 +244,16 @@
       <Name>Blog.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Blog.Entity\Blog.Entity.csproj">
-      <Project>{CB8572E2-7312-4707-A127-1F216665062E}</Project>
+      <Project>{469c609e-6452-4603-886e-e81ebf93e035}</Project>
       <Name>Blog.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Blog.Helper\Blog.Helper.csproj">
       <Project>{cda68d76-1138-43e7-a705-88361a25f8d7}</Project>
       <Name>Blog.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Blog.Model\Blog.Model.csproj">
+      <Project>{A03D6930-5255-4CD3-99EC-8B7FCBA49BE3}</Project>
+      <Name>Blog.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
