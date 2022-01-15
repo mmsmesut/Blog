@@ -5,6 +5,6 @@
 
     @foreach (Blog.Entity.Category item in Model)
     {
-        <li><i class="fa fa-check"></i><a href="#">@item.CategoryName</a></li>
+        <li><i class="fa fa-check"></i><a href="/CategoryDetail/PostByCategory/@item.CategoryId">@item.CategoryName</a></li>
     }
 </ul>

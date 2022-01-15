@@ -4,7 +4,7 @@
 
     @foreach (Blog.Entity.Tag item in Model)
     {
-        <a href="#" class="#" title="17 topic">
+        <a href="/CategoryDetail/PostByTag/@item.TagId" class="" title="17 topic">
                   <i class="fa fa-tag"></i> @item.TagName
         </a>
     }

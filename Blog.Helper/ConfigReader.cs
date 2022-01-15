@@ -27,5 +27,12 @@ namespace Blog.Helper
             return keyData;
         }
 
+
+        public static int GetConfigDataForBlogPostCountForEveryPage()
+        {
+            var keyData = ConfigurationManager.AppSettings["blogPostCountForEveryPage"].ToString();
+            return int.Parse(keyData);
+        }
+
     }
 }

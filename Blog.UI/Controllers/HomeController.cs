@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Blog.Model.ResponseModel;
+using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,13 +12,12 @@ namespace Blog.UI.Controllers
     //Controllerda bulunan action adlarını İlgili klasörde arara bulamaz ise Shared klasöründe arar
     public class HomeController : ControllerBase
     {
-        // GET: Home
-        public ActionResult Index()
+     
+        //Ana sayfa içerindeki postları sayfalayarak getirir 
+        public ActionResult Index(int page = 1)
         {
-
-          
-             var simdikiTarih = GetDateTimeBow;
-             return View();
+            IPagedList<CategoryDetailResponseModel> response = DataService.CategoryDetailManager.GetAllPost().ToPagedList(page, BlogPostCountForEveryPage);
+            return View(response);
         }
 
         public PartialViewResult HeadPartial()

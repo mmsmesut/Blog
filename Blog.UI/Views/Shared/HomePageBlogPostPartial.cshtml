@@ -1,67 +1,10 @@
 ﻿@using Blog.Model.ResponseModel
-@model List<CategoryDetailResponseModel>
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<CategoryDetailResponseModel>
 <!-- Blog Post -->
 <div class="col-md-8">
 
-    <!-- Item Post -->
-    <!--<article class="post">
-        <div class="row">-->
-    <!-- Image  post -->
-    <!--<div class="col-md-5">-->
-    <!-- Image Post  -->
-    <!--<div class="post-image">-->
-    <!-- Simple-slide -->
-    <!--<div id="carousel-example-generic" class="carousel slide bs-docs-carousel-example">
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1" class="">
-            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="~/Content/UI/img/works/1.jpg" alt="">
-            </div>
-            <div class="item">
-                <img src="~/Content/UI/img/works/2.jpg" alt="">
-            </div>
-            <div class="item">
-                <img src="~/Content/UI/img/works/3.jpg" alt="">
-            </div>
-        </div>
-        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </div>-->
-    <!-- End Simple-slide -->
-    <!--</div>-->
-    <!-- End Image Post  -->
-    <!--</div>-->
-    <!-- End Image  post -->
-    <!-- Info post -->
-    <!--<div class="col-md-7">
-        <h3><a href="blog-post.html">Slide Image Post.</a></h3>-->
-    <!-- Post Meta -->
-    <!--<div class="row">
-        <div class="col-md-12">
-            <div class="post-meta">
-                <span><i class="fa fa-calendar"></i> Nov 10, 2012 </span>
-                <span><i class="fa fa-user"></i> By <a href="#">Admin</a> </span>
-                <span><i class="fa fa-tag"></i> <a href="#">Duis</a>, <a href="#">News</a></span>
-                <span><i class="fa fa-comments"></i> <a href="#">(12)</a></span>
-            </div>
-        </div>
-    </div>-->
-    <!-- End Post Meta -->
-    <!--<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur [...]</p>
-        <a href="blog-post.html" class="btn btn-primary">Read more...</a>
-    </div>-->
-    <!--End Info post -->
-    <!--</div>
-    </article>-->
-    <!-- End Item Post -->
 
     @foreach (var item in Model)
     {
@@ -117,9 +60,9 @@
                     </div>
                     <!-- End Post Meta -->
                     <p>
-                    
-                                        @Blog.Helper.StringHelper.ShortenedStringWordsAndThreeDot(@item.Content, 210)
-                                    </p>
+
+                        @Blog.Helper.StringHelper.ShortenedStringWordsAndThreeDot(@item.Content, 210)
+                    </p>
                     <a href="blog-post.html" class="btn btn-primary">Read more...</a>
                 </div>
                 <!--End Info post -->
@@ -130,14 +73,19 @@
 
     <!-- Pagination -->
     <ul class="pagination">
-        <li><a href="#">«</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li class="active"><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">»</a></li>
+        @*<li><a href="#">«</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li class="active"><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">»</a></li>*@
+        @Html.PagedListPager(Model, sayfa => Url.Action("GetAllPost", new { sayfa }), PagedListRenderOptions.Classic)
+
     </ul>
+
+
+
     <!-- End Pagination -->
 
 </div>

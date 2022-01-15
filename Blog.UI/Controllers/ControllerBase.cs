@@ -1,4 +1,5 @@
 ﻿using Blog.BLL;
+using Blog.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,16 @@ namespace Blog.UI.Controllers
                 return DateTime.Now;
             }
         
+        }
+
+        //Ana sayfada bulunanan blog index sayfası için her sayfada gösterilecek kayıt sayısını configte okuyarak getirir
+        public static int BlogPostCountForEveryPage
+        {
+            get
+            {
+                int count = ConfigReader.GetConfigDataForBlogPostCountForEveryPage();
+                return count > 0 ? count : 5; 
+            } 
         }
 
     }

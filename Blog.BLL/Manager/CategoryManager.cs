@@ -31,5 +31,12 @@ namespace Blog.BLL.Manager
             return topThreeCatList;
         }
 
+
+        public List<Category> CategoriList(int catId)
+        {
+            List<Category> catList = _context.Categories.Where(x=>x.CategoryId==catId && x.Deleted == false).ToList();
+            return catList;
+        }
+
     }
 }

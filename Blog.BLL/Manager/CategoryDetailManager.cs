@@ -100,5 +100,33 @@ namespace Blog.BLL.Manager
                                .ToList();
             return list;
         }
+
+        public List<CategoryDetailResponseModel> GetAllPostByCategoriId(int catId)
+        {
+            var list = _context.Database.
+                               SqlQuery<CategoryDetailResponseModel>(@"
+                                                         declare @catId int = {0}
+                                                         select* from CategoryDetail as cd where 
+                                                         cd.CategoryId = @catId and cd.Deleted = 0
+                                                         ", catId)
+                               .ToList();
+            return list;
+        }
+
+
+        public List<CategoryDetailResponseModel> GetAllPostByTagId(int tagId)
+        {
+            var list = _context.Database.
+                               SqlQuery<CategoryDetailResponseModel>(@"
+                                                         declare @tagId int = {0}
+                                                         select* from CategoryDetail as cd where 
+                                                         cd.TagId = @tagId and cd.Deleted = 0
+                                                         ", tagId)
+                               .ToList();
+            return list;
+        }
+
+
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Blog.Model.ResponseModel;
 using Blog.UI.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,25 @@ namespace Blog.UI.Controllers
 
 
 
-        public PartialViewResult GetAllPost()
+        public PartialViewResult GetAllPost(int pageId=1)
         {
-
-            List<CategoryDetailResponseModel> response = DataService.CategoryDetailManager.GetAllPost();
+            IPagedList<CategoryDetailResponseModel> response = DataService.CategoryDetailManager.GetAllPost().ToPagedList(pageId,3);
             return PartialView("HomePageBlogPostPartial", response);
         }
+
+        public ActionResult PostByCategory(int ?id, int page = 1)
+        {
+            IPagedList<CategoryDetailResponseModel> response = DataService.CategoryDetailManager.GetAllPostByCategoriId(id.Value).ToPagedList(page, BlogPostCountForEveryPage);
+            return View(response);
+        }
+
+
+        public ActionResult PostByTag(int? id, int page = 1)
+        {
+            IPagedList<CategoryDetailResponseModel> response = DataService.CategoryDetailManager.GetAllPostByTagId(id.Value).ToPagedList(page, BlogPostCountForEveryPage);
+            return View(response);
+        }
+
 
     }
 }

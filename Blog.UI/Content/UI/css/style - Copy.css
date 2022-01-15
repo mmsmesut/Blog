@@ -82,9 +82,7 @@
 /*jquery.fancybox.css  - Lightbox*/
 @import url("../js/fancybox/jquery.fancybox.css");
 /*Style Switcher*/
-/*@import url("skins/theme-options.css");
-*/
-@import url(../css/skins/theme-options.css);
+@import url("skins/theme-options.css");
 /*Animations*/
 @import url("animations/animate.css");
 /*revolution Slider*/

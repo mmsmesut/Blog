@@ -10,6 +10,10 @@ namespace Blog.Model.ResponseModel
     {
         public int CategoryDetailId { get; set; }
 
+        public int CategoryId { get; set; }
+
+        public int TagId { get; set; }
+
         public string Header { get; set; }
 
         public string Content { get; set; }
