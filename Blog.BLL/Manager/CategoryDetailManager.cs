@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Blog.Entity;
 using Blog.Helper;
 using Blog.Model.ResponseModel;
+using System.Data.SqlClient;
 
 namespace Blog.BLL.Manager
 {
@@ -127,6 +128,26 @@ namespace Blog.BLL.Manager
         }
 
 
+        //Kullanıcıın girdiği key bilgisinin database de CategoryDetail tablosunda arayıp geriye birsonuc döndürür
+       
+        public List<CategoryDetailResponseModel> PostBySearchKey(string key)
+        {
+            key = "%" + key +"%";
+            var list = _context.Database.SqlQuery<CategoryDetailResponseModel>(@"
+                                                   declare @stringToFind VARCHAR(max) = {0} 
+                                                   EXEC sp_FindStringInTableV2 @stringToFind",key).ToList();
+            return list;
+        }
+
+        //2.Yöntem
+        /*
+        public List<CategoryXResponseModel> PostBySearchKey(string key)
+        {
+            key += "%";
+            var list = _context.Database.SqlQuery<CategoryXResponseModel>("sp_FindStringInTableV2 @param1", new SqlParameter("@param1", key)).ToList();
+            return list;
+        }
+        */
 
     }
 }

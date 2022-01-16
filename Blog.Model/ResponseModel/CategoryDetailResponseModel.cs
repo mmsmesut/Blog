@@ -23,6 +23,8 @@ namespace Blog.Model.ResponseModel
         public string TagName { get; set; }
 
         public int  CommentCount { get; set; }
- 
+
+        public int TotalRowCount { get; set; }
+
     }
 }

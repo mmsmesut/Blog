@@ -25,11 +25,11 @@
             <!-- End Title-->
             <!-- Search-->
             <div class="col-md-3">
-                <form class="search" action="#" method="Post">
+                <form class="search" action="/CategoryDetail/PostBySearchKey/" method="Post">
                     <div class="input-group">
-                        <input class="form-control" placeholder="Search..." name="email" type="email" required="required">
+                        <input class="form-control" placeholder="Ara......." name="key" type="text" required="required">
                         <span class="input-group-btn">
-                            <button class="btn btn-primary" type="submit" name="subscribe">Go!</button>
+                            <button class="btn btn-primary" type="submit" name="subscribe">Ara!</button>
                         </span>
                     </div>
                 </form>
@@ -40,3 +40,11 @@
 
     </div>
 </section>
+
+@*
+    Form Yöntemiile Controller'a erişirken 3 kurala dikkat etmemiz gerekiyor
+    1) action -
+    2) inputların name alanları
+    3) Button type'ının submitolması
+    4) veri gönderirken method type'ının tipinin belirlenmesi Post yada Get 
+*@

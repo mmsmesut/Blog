@@ -239,6 +239,7 @@
     <Content Include="Views\Shared\ThemeOptionsPartial.cshtml" />
     <Content Include="Views\CategoryDetail\PostByCategory.cshtml" />
     <Content Include="Views\CategoryDetail\PostByTag.cshtml" />
+    <Content Include="Views\CategoryDetail\PostBySearchKey.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

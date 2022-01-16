@@ -44,6 +44,14 @@ namespace Blog.UI.Controllers
         }
 
 
+        public ActionResult PostBySearchKey(string key,int page=1)
+        {
+            IPagedList<CategoryDetailResponseModel> response = DataService.CategoryDetailManager.PostBySearchKey(key).ToPagedList(page, BlogPostCountForEveryPage);
+            return View(response);
+            //var response = DataService.CategoryDetailManager.PostBySearchKey(key);
+            //return View(response);
+        }
+
     }
 }
 

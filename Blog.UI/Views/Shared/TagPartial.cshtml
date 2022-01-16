@@ -1,10 +1,10 @@
-﻿@model  List<Blog.Entity.Tag>
+﻿@model  List<Blog.Model.ResponseModel.TagResponseModel>
 <aside class="tags">
     <h4>Tags</h4>
 
-    @foreach (Blog.Entity.Tag item in Model)
+    @foreach (Blog.Model.ResponseModel.TagResponseModel item in Model)
     {
-        <a href="/CategoryDetail/PostByTag/@item.TagId" class="" title="17 topic">
+        <a href="/CategoryDetail/PostByTag/@item.TagId" class="" title="@item.TagCount topic">
                   <i class="fa fa-tag"></i> @item.TagName
         </a>
     }

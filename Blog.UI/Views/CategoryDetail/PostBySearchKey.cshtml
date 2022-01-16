@@ -1,13 +1,21 @@
-﻿
-@{
-    ViewBag.Title = "PostByTag";
-}
-
-
-@using Blog.Model.ResponseModel
+﻿@using Blog.Model.ResponseModel
 @using PagedList
 @using PagedList.Mvc
 @model IPagedList<CategoryDetailResponseModel>
+
+@{
+    ViewBag.Title = "PostBySearchKey";
+}
+
+@if (Model != null && Model.TotalItemCount > 0)
+{
+    <h4>Toplam Bulunan Makale Sayısı :@Model.TotalItemCount</h4>
+}
+else
+{
+    <h4>Aradığınız kelimeyle eşleşen makale bulunmadı</h4>
+}
+
 
 <!-- Blog Post -->
 @foreach (var item in Model)
@@ -79,17 +87,13 @@
 
 }
 
-@*Controller'a Uı tarafından erişip işlem yapabiliriz*@ 
 @if (Model.Count >= Blog.UI.Controllers.ControllerBase.BlogPostCountForEveryPage && Model.PageCount > 1
     || Model.PageCount > 1
     )
 {
     <!-- Pagination -->
     <ul class="pagination">
-        @Html.PagedListPager(Model, page => Url.Action("/PostByTag/", new { id = Model[0].TagId, page }))
+        @Html.PagedListPager(Model, page => Url.Action("/PostByCategory/", new { id = Model[0].CategoryId, page }))
     </ul>
     <!-- End Pagination -->
 }
-
-@*@Html.PagedListPager(Model, page => Url.Action("Products",
-    new { page, sortOrder = ViewBag.CurrentSort,  Category = ViewBag.Category, Brand = ViewBag.Brand }))*@
